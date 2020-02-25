@@ -1,0 +1,223 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-color: #FFF;
+    /* Margin bottom by footer height */
+    /*margin-bottom: 60px;*/
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+/* Comparisson */
+#tableHolder .btn-cta {
+    background-color: #82c075;
+    box-shadow: 2px 2px 0 0 #62b052;
+}
+
+.comparisson-plg .first.active, .comparisson-plg .second.active,
+.comparisson-plg .as-feed-view-more-button {
+    background-color: #82c075;
+}
+
+    #tableHolder .btn-cta:hover, .comparisson-plg .first:hover, .comparisson-plg .second:hover,
+    .comparisson-plg .as-feed-view-more-button:hover {
+        background-color: #62b052;
+    }
+
+.comparisson-plg .green {
+    color: #82c075;
+}
+
+.comparisson-plg input[type=range] {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #82c075), color-stop(100%, #82c075));
+    background-image: -webkit-linear-gradient(#82c075, #82c075);
+    background-image: -moz-linear-gradient(#82c075, #82c075);
+    background-image: -o-linear-gradient(#82c075, #82c075);
+    background-image: linear-gradient(#82c075, #82c075);
+}
+
+/* Google Icons */
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.material-icons {
+    vertical-align: -6px; /*Change this to adjust the icon*/
+}
+
+
+/********** Custom CSS **********/
+
+/* Navbar hover color fix */
+.dropdown-menu > a:hover, .dropdown-menu > a:focus {
+    background-image: none !important;
+}
+.dropdown-menu > a:hover, .dropdown-menu > a:focus {
+    background-color: darkred;
+}
+
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+.box_shadow_normal {
+    -webkit-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.5);
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgba(255,255,255, 0.6);
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+    }
+}
+
+.shadow-pulse {
+    animation: shadow-pulse 1s infinite;
+}
+
+.details_top_box {
+    background-color: #ED1C00;
+}
+
+.details_picture_box {
+    padding-top: 40px;
+    background-color: #C01700;
+}
+
+.details_content_box {
+    background-color: #fff;
+}
+
+.details_buttom_box {
+    background-color: #ED1C00;
+}
+
+.navigation_top_menu {
+    background-color: #ED1C00;
+}
+
+.footer_box {
+    background-color: #ED1C00;
+}
+
+.footer_box_link {
+    text-decoration: underline;
+}
+
+/* Forside */
+.categories_box {
+    background-color: #ED1C00;
+}
+
+.mail_signup_box {
+    background: url('/images/newsletter_signup_bg.jpg') center center no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+.about_us_box {
+    background-color: #ED1C00;
+}

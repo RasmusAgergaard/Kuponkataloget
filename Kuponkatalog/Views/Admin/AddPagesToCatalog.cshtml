@@ -1,0 +1,25 @@
+﻿@model CatalogPages;
+
+@{
+    ViewData["Title"] = "Add Pages To Catalog";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Add Pages To Catalog</h3>
+</p>
+
+<form asp-action="AddPagesToCatalog" method="post">
+    <div class="form-group">
+        <label asp-for="CatalogId">CatalogId:</label>
+        <input class="form-control" asp-for="CatalogId" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PageId">PageId:</label>
+        <input class="form-control" asp-for="PageId" />
+    </div>
+    <button type="submit" class="btn btn-outline-success btn-sm">Add</button>
+</form>
+
+
+

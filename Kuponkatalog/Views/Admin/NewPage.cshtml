@@ -1,0 +1,59 @@
+﻿@model Page;
+
+@{
+    ViewData["Title"] = "Create New Page";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Create New Page</h3>
+</p>
+
+<form asp-action="AddItem" method="post">
+
+    <div class="form-group">
+        <label asp-for="Type">Type:</label>
+        <select class="form-control" asp-for="Type">
+            <option>@Enums.pageTypes.Affiliate</option>
+            <option>@Enums.pageTypes.FrontPage</option>
+            <option>@Enums.pageTypes.BackPage</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Moniker">Moniker:</label>
+        <input class="form-control" asp-for="Moniker" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Title">Title:</label>
+        <input class="form-control" asp-for="Title" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DescriptionShort">DescriptionShort:</label>
+        <textarea class="form-control" asp-for="DescriptionShort" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="DescriptionLong">DescriptionLong:</label>
+        <textarea class="form-control" asp-for="DescriptionLong" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImgUrl">ImgUrl:</label>
+        <input class="form-control" asp-for="ImgUrl" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TargetUrl">TargetUrl:</label>
+        <input class="form-control" asp-for="TargetUrl" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ButtonText">ButtonText:</label>
+        <input class="form-control" asp-for="ButtonText" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SortNumber">SortNumber:</label>
+        <input class="form-control" asp-for="SortNumber" />
+    </div>
+    <button type="submit" class="btn btn-outline-success btn-sm">Create</button>
+</form>
+
+
+

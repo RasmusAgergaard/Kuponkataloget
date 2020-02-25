@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Sammenlign priser på Dating sider - Klik her";
+    var breadcrumbTitle = "Dating sider";
+}
+
+@section metatags{<meta name="description" content="Find det bedste tilbud på Dating sider. Vi har gjort det nemt og hurtigt at sammenligne og få et godt overblik.">}
+
+@section comparisonfeed{ <partial name="_ComparisonFeedPartial" /> }
+
+<div class="text-center p-3">
+
+    <partial name="_BreadcrumbPartial" model="@breadcrumbTitle" />
+
+    <h1 class="display-5">Sammenlign priser på Dating sider</h1>
+    <p class="lead">
+        Find det bedste tilbud på Dating sider. Vi har gjort det nemt og hurtigt at sammenligne og få et godt overblik
+    </p>
+
+</div>
+
+
+<partial name="_DatingPartial" />
+

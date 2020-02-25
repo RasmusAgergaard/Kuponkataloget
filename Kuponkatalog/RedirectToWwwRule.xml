@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<rewrite>
+  <rules>
+    <rule name="CanonicalHostNameRule">
+      <match url="(.*)" />
+      <conditions>
+        <add input="{HTTP_HOST}" pattern="^www\.kuponkataloget\.dk$" negate="true" />
+      </conditions>
+      <action type="Redirect" url="https://www.kuponkataloget.dk/{R:1}" />"
+    </rule>
+  </rules>
+</rewrite>

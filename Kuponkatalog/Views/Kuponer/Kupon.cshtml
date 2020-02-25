@@ -1,0 +1,97 @@
+﻿@model PageViewModel
+
+@{
+    ViewData["Title"] = Model.Page.Title;
+}
+
+@section metatags{<meta name="description" content="@Model.Page.DescriptionShort @Model.Page.DescriptionLong">}
+
+<div class="container">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center shadow">
+
+            <a href="@Model.Page.TargetUrl" target="_blank">
+                <img src="@Model.Page.ImgUrl" class="img-fluid rounded-lg mt-3" alt="@Model.Page.Title" asp-append-version="true">
+            </a>
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_content_box shadow pt-4 pb-5">
+
+            <h2 class="card-title">@Model.Page.Title</h2>
+            <p class="card-text lead">
+                @if (!String.IsNullOrWhiteSpace(Model.Page.DescriptionShort))
+                {
+                    @Html.Raw(Model.Page.DescriptionShort.Replace(Environment.NewLine, "<br/>"));
+                }
+            </p>
+            <p class="card-text">
+                @if (!String.IsNullOrWhiteSpace(Model.Page.DescriptionLong))
+                {
+                    @Html.Raw(Model.Page.DescriptionLong.Replace(Environment.NewLine, "<br/>"));
+                }
+            </p>
+            <div style="width:100%; height:10px;"></div>
+            <p>
+                <div class="text-center">
+                    <a href="@Model.Page.TargetUrl" target="_blank" class="btn btn-primary btn-lg" style="width: 100%;">@Model.Page.ButtonText</a>
+                </div>
+            </p>
+
+            <hr />
+
+            @foreach (var tag in Model.KategoriViewModels)
+            {
+                <a href="/Kategorier/@tag.Tag.Moniker" class="badge badge-info">@tag.Tag.Title</a>
+            }
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container">
+
+    @foreach (var kategoriViewModel in Model.KategoriViewModels)
+    {
+
+        <hr />
+
+        <div class="text-center p-3">
+
+            <!-- Spacer -->
+            <div style="width:100%; height:15px;"></div>
+
+            <h2>Mere fra @kategoriViewModel.Tag.Title</h2>
+            <a href="/Kategorier/@kategoriViewModel.Tag.Moniker" class="">Gå til kategori</a>
+        </div>
+
+        <div class="row p-3">
+
+            @foreach (var item in kategoriViewModel.Pages)
+            {
+                <partial name="_KuponCardPartial" model="item" />
+            }
+
+        </div>
+    }
+
+</div>
+
+<hr />
+
+<div class="container">
+
+    <div class="text-center p-3">
+
+        <h2>Alle kategorier</h2>
+
+        @foreach (var tag in Model.AllTags)
+        {
+            <a href="/Kategorier/@tag.Moniker" class="btn btn-primary btn-sm m-2">@tag.Title</a>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Læs alt om Kuponkataloget her";
+}
+
+@section metatags{<meta name="description" content="Hvad er Kuponkataloget? Hvad er der i vores kataloger? Hvad er pristjek? Læs det hele her.">}
+
+<div class="text-center p-3">
+
+    <!--Spacer-->
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">Om Kuponkataloget</h1>
+
+    <!--Spacer-->
+    <div style="width:100%; height:15px;"></div>
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 text-left">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Hvad dælen er det for noget?</h3>
+                    <p class="card-text">
+                        Kuponkataloget er et online katalog, der samler en masse gode tilbud, konkurrencer og andet spændende indhold og præsenterer det, så det er nemt at kigge igennem.
+                    </p>
+                </div>
+            </div>
+
+            <!--Spacer-->
+            @*<div style="width:100%; height:20px;"></div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Kuponerne</h3>
+                    <p class="card-text">
+                        Det er i katalogerne, vi samler alt det gode indhold, vi finder. Der udkommer et nyt katalog hver uge.
+                        Under menupunktet “<a asp-area="" asp-controller="Kataloger" asp-action="Index">Kataloger</a>” finder du det nyeste katalog samt de tidligere udgaver.
+                    </p>
+                </div>
+            </div>*@
+
+            <!--Spacer-->
+            <div style="width:100%; height:20px;"></div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Pristjek</h3>
+                    <p class="card-text">
+                        Med Pristjek kan du nemt få sammenlignet priser på f.eks Magasiner eller Mobilabonnementer. Det er hurtigt, og det kan spare dig en masse penge.
+                        <br />
+                        <a asp-area="" asp-controller="Pristjek" asp-action="Index">
+                            Klik ind og se de forskellige kategorier her
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!--Spacer-->
+            <div style="width:100%; height:20px;"></div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Kontakt / Infomation</h3>
+                    <p class="card-text">
+                        Du er altid meget velkommen til at kontakte os via vores
+                        <a class="" asp-area="" asp-controller="Kontakt" asp-action="Index">kontaktformular</a>, hvis du har spørgsmål angående vores tjeneste.
+                        <br />
+                        <br />
+                        Kuponkataloget er ejet af den fynske virksomhed RatherBeCoding med nedenstående adresse.
+
+                        <partial name="_AddressPartial" />
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <img src="~/images/omos/om_os_bg.jpg" class="img-fluid" alt="Kuponkataloget" />
+</div>
+
+

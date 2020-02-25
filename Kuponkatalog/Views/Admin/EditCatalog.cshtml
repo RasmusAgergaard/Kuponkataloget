@@ -1,0 +1,102 @@
+﻿@model CatalogViewModel;
+
+@{
+    ViewData["Title"] = "Edit Catalog";
+    Layout = "_LayoutAdmin";
+    var imgUrl = "/images/catalogs/" + Model.Catalog.CatalogId + ".jpg";
+    var bgImgUrl = "/images/catalogs/" + Model.Catalog.CatalogId + "_bg.jpg";
+}
+
+<div class="row">
+    <div class="col">
+        <p>
+            <h3>Edit Catalog</h3>
+        </p>
+        <form asp-action="AddItem" method="post">
+
+            <div class="form-group">
+                <label asp-for="Catalog.Status">Status:</label>
+                <select class="form-control" asp-for="Catalog.Status">
+                    <option>@Enums.catalogStatus.Draft</option>
+                    <option>@Enums.catalogStatus.Active</option>
+                    <option>@Enums.catalogStatus.Archived</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Catalog.ShowOnFrontpage">Show On Frontpage:</label>
+                <select class="form-control" asp-for="Catalog.ShowOnFrontpage">
+                    <option>False</option>
+                    <option>True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Catalog.Moniker">Moniker:</label>
+                <input class="form-control" asp-for="Catalog.Moniker" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Catalog.Title">Title:</label>
+                <input class="form-control" asp-for="Catalog.Title" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Catalog.Description">Description:</label>
+                <textarea class="form-control" asp-for="Catalog.Description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Catalog.ImgUrl">ImgUrl:</label>
+                <input class="form-control" asp-for="Catalog.ImgUrl" value="@imgUrl" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Catalog.BgImgUrl">ImgUrl:</label>
+                <input class="form-control" asp-for="Catalog.BgImgUrl" value="@bgImgUrl" readonly />
+            </div>
+            <div class="form-group">
+                <input class="form-control" asp-for="SavedCatalogId" value="@Model.Catalog.CatalogId" readonly hidden />
+            </div>
+            <div class="form-group">
+                <input class="form-control" asp-for="Catalog.CreateDate" value="@Model.Catalog.CreateDate" readonly />
+            </div>
+            <div class="form-group">
+                <input class="form-control" asp-for="Catalog.LastEditDate" value="@DateTime.Now.ToString()" readonly />
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-sm">Gem</button>
+        </form>
+    </div>
+    <div class="col">
+        <p>
+            <h3>Pages</h3>
+        </p>
+
+        <table class="table table-sm table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sort Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pageItem in Model.Pages)
+                {
+                <tr>
+                    <th scope="row">@pageItem.PageId</th>
+                    <td>@pageItem.Title</td>
+                    <td>@pageItem.Type</td>
+                    <td>
+                        <img src="@pageItem.ImgUrl" alt="@pageItem.ImgUrl" class="img-thumbnail" style="width:100px">
+                    </td>
+                    <td>@pageItem.SortNumber</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

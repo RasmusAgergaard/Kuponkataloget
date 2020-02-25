@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Sammenlign priser på Mobilabonnementer - Klik her";
+    var breadcrumbTitle = "Mobilabonnementer";
+}
+
+@section metatags{<meta name="description" content="Find det bedste og billigste Mobilabonnement. Det er nemt og hurtigt at sammenligne tilbud, inden du køber.">}
+
+@section comparisonfeed{ <partial name="_ComparisonFeedPartial" /> }
+
+<div class="text-center p-3">
+
+    <partial name="_BreadcrumbPartial" model="@breadcrumbTitle" />
+
+    <h1 class="display-5">Sammenlign priser på Mobilabonnementer</h1>
+    <p class="lead">Find det bedste og billigste Mobilabonnement. Det er nemt og hurtigt at sammenligne tilbud, inden du køber</p>
+
+</div>
+
+
+<partial name="_MobilPartial" />
+

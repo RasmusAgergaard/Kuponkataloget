@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Tag>
+
+@{
+    ViewData["Title"] = "Kategorier";
+}
+
+    <div class="text-center p-3">
+
+        <!--Spacer-->
+        <div style="width:100%; height:15px;"></div>
+
+        <h1 class="display-5">Kategorier</h1>
+        @*<p class="lead">
+            Lead tekst her
+        </p>*@
+
+    </div>
+
+@foreach (var tag in Model)
+{
+    <p>
+        @tag.Title
+        <br />
+        <a href="/Kategorier/@tag.Moniker">Gå til Kategori</a>
+    </p>
+    <hr />
+    
+}

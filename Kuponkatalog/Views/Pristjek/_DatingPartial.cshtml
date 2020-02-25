@@ -1,0 +1,41 @@
+﻿<div class="container" data-iframe-height="data-iframe-height">
+    <!-- Show feed title -->
+    <!-- Filter starts here -->
+    <!-- Filter ends here -->
+
+
+    <div id="tableHolder" class="comparisson-plg"
+         data-adserviceFeed="true"
+         data-id="dating01"
+         data-template="#outputTmpl"
+         data-publisherId="34293"
+         data-categoryId="174"
+         data-searchForm="#searchTable"
+         data-cleanLink="true"
+         data-minRating="60"
+         data-sub="ComparisonIframe|||CIF"
+         data-media="0"
+         data-initialRows=""
+         data-maxRows=""
+         data-removedItems='[]'
+         data-conditions='[]'
+         data-customOrder='{}'
+         data-customRating='{}'
+         data-includeNewCampaigns="true"
+         data-lazyLoading="true"></div>
+
+    <!-- Show 'view more' button -->
+
+
+    <div id="compare-wrapper">
+        <script id="outputTmpl" type="text/x-render">
+            <div id="loanTable">
+                {{for data}}
+
+                <div class="compare-row slim-compare-row" data-campaign-id="{{>campId}}"><div class="row-item"><div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><div class="logo-container"><a href="{{>trackingUrl}}" class="as-link" target="_blank" rel="nofollow"><img src="" as-data-src="{{>imageUrl}}" class="img-responsive loan-img padding-top-sm as-lazy"></a></div><input type="rating" class="rating" value="{{>5*rating/100}}"></div><div class="col-xs-12 col-sm-7 col-md-8 col-lg-8 margin-top text-center-sm text-center-xs margin-top-xs"><div class="col-xs-6 col-sm-4"><span class="as-small">{{>~getTranslation('members')}} </span><span class="as-highlight">{{if ~isValid(membersInDK)}} {{:~printInterval(membersInDK, null, null, false, false, true)}}+ {{else}} - {{/if}}</span></div><div class="col-xs-6 col-sm-4"><span class="as-small">{{>~getTranslation('freeProfile')}} </span><span class="as-highlight">{{>~printOrGetBoolean(freeProfil)}}</span></div><div class="col-xs-12 col-sm-4"><span class="as-small">{{>~getTranslation('targetGroup')}} </span><span class="as-highlight">{{if ~isValid(targetGroup)}} {{>targetGroup}} {{else}} - {{/if}}</span></div></div><div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 margin-top"><a href="{{>trackingUrl}}" class="btn btn-cta btn-block btn-max-width-card" target="_blank" rel="nofollow">{{>~getTranslation('createNow')}} <i class="fa fa-user-plus fa-fw align-baseline"></i></a></div></div><div class="row-item margin-top"><div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 text-center small-padding-xs margin-top-xs"><div class="as-read-more nowrap no-margin light-hover" style="position:static"><a class="as-small move-up-3px" data-open="{{>~getTranslation('showMore')}}" data-close="{{>~getTranslation('showLess')}}">{{>~getTranslation('showMore')}}</a><div class="as-read-more-icon margin-left-xs"><i class="fa fa-angle-down fa-lg"></i></div></div></div></div><div class="row-item as-show-more-content row-padding"><div class="hr-divider"></div><div class="col-xs-12 col-sm-12 col-md-push-2 col-md-8 col-lg-push-2 col-lg-8 text-center-sm text-center-xs"><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('matchmaking')}}</div><div class="as-data-c">{{>~printOrGetBoolean(matchmaking)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('chat')}}</div><div class="as-data-c">{{>~printOrGetBoolean(chat)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('mobileApp')}}</div><div class="as-data-c">{{>~printOrGetBoolean(mobileApp)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('internationalMembers')}}</div><div class="as-data-c">{{if ~isValid(membersInternational)}} {{:~printInterval(membersInternational, null, null, false, false, true)}}+ {{else}} - {{/if}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('pricePerMonthPlusProfile')}}</div><div class="as-data-c">{{:~printInterval(pricePerMonthPlusProfile, null, ~getTranslation('currency'), true, true, true)}}</div></div></div></div></div>
+
+                {{/for}}
+            </div>
+        </script>
+    </div>
+</div>

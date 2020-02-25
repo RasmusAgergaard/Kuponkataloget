@@ -1,0 +1,116 @@
+﻿@model IEnumerable<PageAdminViewModel>
+
+@{
+    ViewData["Title"] = "Pages Overview";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Pages Overview</h3>
+</p>
+
+<p>
+    <a asp-area="" asp-controller="Admin" asp-action="NewPage" class="btn btn-outline-success btn-sm" role="button">Create New Page</a>
+</p>
+
+<table class="table table-sm table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Moniker</th>
+            <th scope="col">Img</th>
+            <th scope="col">Title</th>
+            <th scope="col">Type</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Catalogs:</th>
+            <th scope="col">Sort Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pageItem in Model)
+        {
+        <tr>
+            <th scope="row">@pageItem.Page.PageId</th>
+            <td>@pageItem.Page.Moniker</td>
+            <td>
+                <a class="thumbnail" href="#thumb"><img src="@pageItem.Page.ImgUrl" class="img-thumbnail" style="width:100px; height:auto" border="0" /><span><img src="@pageItem.Page.ImgUrl" /></span></a>
+            </td>
+            <td>@pageItem.Page.Title</td>
+            <td>@pageItem.Page.Type</td>
+            <td>
+
+                @if (pageItem.Tags.Count() == 0)
+                {
+                    <span class="badge badge-danger">None</span>
+                }
+
+
+                @foreach (var tag in pageItem.Tags)
+                {
+                    <span class="badge badge-info">@tag.Title (@tag.TagId)</span>
+                }
+
+            </td>
+            <td>
+
+                @if (pageItem.Catalogs.Count == 0)
+                {
+                    <span class="badge badge-warning">None</span>
+                }
+
+                @foreach (var catalog in pageItem.Catalogs)
+                {
+                    <span class="badge badge-primary">@catalog.Title</span>
+                }
+
+            </td>
+            <td>@pageItem.Page.SortNumber</td>
+            <td>
+                @if (pageItem.Page.Status == Enums.pageStatus.Active)
+                {<span class="badge badge-success">Active</span>}
+                @if (pageItem.Page.Status == Enums.pageStatus.Expired)
+                {<span class="badge badge-danger">Expired</span>}
+            </td>
+
+            <td>
+                <div style="width:130px;">
+                    <a asp-area="" asp-controller="Admin" asp-action="EditPage" asp-route-id="@pageItem.Page.PageId" class="btn btn-outline-secondary btn-sm mb-2" role="button">Edit</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="AddTagToPage" asp-route-id="@pageItem.Page.PageId" class="btn btn-outline-secondary btn-sm mb-2" role="button">Add tags</a>
+                    <br />
+                    <a href="@pageItem.Page.TargetUrl" class="btn btn-outline-success btn-sm" role="button" target="_blank">Link</a>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-@pageItem.Page.PageId">Delete</button>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal-@pageItem.Page.PageId" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel">Are you sure you want to delete this Item?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    ID: @pageItem.Page.PageId
+                                    <br />
+                                    Title: @pageItem.Page.Title
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-outline-success btn-sm" role="button" data-dismiss="modal">No I Don't Want To</a>
+                                <a asp-area="" asp-controller="Admin" asp-action="DeletePage" asp-route-id="@pageItem.Page.PageId" class="btn btn-outline-danger btn-sm" role="button">Yes I Want To Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

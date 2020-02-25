@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Sammenlign priser på A-kasse og fagforeninger";
+    var breadcrumbTitle = "A-kasse og fagforeninger";
+}
+
+@section metatags{<meta name="description" content="Find den bedste og billigste A-kasse og fagforening. Det er nemt og hurtigt at sammenligne priser, inden du vælger.">}
+
+@section comparisonfeed{ <partial name="_ComparisonFeedPartial" /> }
+
+<div class="text-center p-3">
+
+    <partial name="_BreadcrumbPartial" model="@breadcrumbTitle" />
+
+    <h1 class="display-5">Sammenlign priser på A-kasse og fagforeninger</h1>
+    <p class="lead">
+        Find den billigste A-kasse og fagforening. Det er nemt og hurtigt at sammenligne priser, inden du vælger
+    </p>
+
+</div>
+
+
+<partial name="_AkassePartial" />
+

@@ -1,0 +1,61 @@
+﻿@model CatalogViewModel
+
+@{ 
+    var pageId = Model.PageId;
+}
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 shadow text-center text-white" style="background-color: #C01700;">
+
+            <!-- Spacer -->
+            <div style="width:100%; height:80px;"></div>
+
+            <h1 class="display-5">Tak for denne gang!</h1>
+            <p class="lead m-2">Vi ses igen i næste nummer :)</p>
+
+            <!-- Spacer -->
+            <div style="width:100%; height:10px;"></div>
+
+            <hr style="border-top: 1px dashed #FFF; opacity:0.4;" />
+
+            <!-- Spacer -->
+            <div style="width:100%; height:10px;"></div>
+
+            <h3>Se mere?</h3>
+            <p class="p-1">
+
+                <!-- Next -->
+                <a class="btn btn-outline-light btn-lg shadow-pulse" href="~/Kataloger/@Model.NextCatalogMoniker/Forside">
+                    Næste Katalog (@Model.NextCatalogTitle)
+                    <i class="material-icons md-24 md-light" style="margin-top:-3px">keyboard_arrow_right</i>
+                </a>
+            </p>
+
+            <!-- Spacer -->
+            <div style="width:100%; height:10px;"></div>
+
+            <hr style="border-top: 1px dashed #FFF; opacity:0.4;" />
+
+            <h3>Følg os på</h3>
+            <p class="p-1">
+
+                <a class="btn btn-outline-light m-1" href="https://www.facebook.com/Kuponkataloget" target="_blank">
+                    Facebook
+                    <img src="~/images/social/fb_square_icon.png" style="width:30px; height:auto;" />
+                </a>
+                eller
+                <a class="btn btn-outline-light m-1" href="https://www.instagram.com/Kuponkataloget" target="_blank">
+                    Instagram
+                    <img src="~/images/social/ig_square_icon.png" style="width:30px; height:auto;" />
+                </a>
+            </p>
+
+            <div class="p-3 m-4">
+                <partial name="_FooterMailSignupPartial" />
+            </div>
+
+            <!-- Spacer -->
+            <div style="width:100%; height:100px;"></div>
+
+        </div>
+    </div>

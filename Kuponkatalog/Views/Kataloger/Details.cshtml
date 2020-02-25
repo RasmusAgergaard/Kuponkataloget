@@ -1,0 +1,129 @@
+﻿@model CatalogViewModel
+
+@{
+    Layout = "_LayoutDetails";
+    var catalogId = Model.Catalog.CatalogId;
+    var catalogMoniker = Model.Catalog.Moniker;
+    var pageId = Model.PageId;
+    var pageIdShow = Model.PageId + 1;
+    var nextPageId = Model.PageId + 1;
+    var previousPageId = Model.PageId - 1;
+    var nextPageMoniker = "NotSet";
+    var previousPageMoniker = "NotSet";
+    var numberOfPages = Model.Pages.Count();
+    var progress = (pageIdShow * 100) / numberOfPages;
+
+    if (nextPageId < numberOfPages)
+    {
+        nextPageMoniker = Model.Pages[nextPageId].Moniker;
+    }
+
+    if (previousPageId >= 0)
+    {
+        previousPageMoniker = Model.Pages[previousPageId].Moniker;
+    }
+
+    ViewData["Title"] = Model.Pages[pageId].Title + " | " + Model.Catalog.Title;
+}
+
+@section metatags{<meta name="description" content="@Model.Pages[pageId].DescriptionShort @Model.Pages[pageId].DescriptionLong">}
+
+<!-- Top navigation -->
+<div class="fixed-top">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_top_box box_shadow_normal" style="height:40px;">
+                <div class="float-left" style="height:100%">
+                    <img src="~/images/kuponkatalog_logo.png" style="width: 160px; padding-top: 3px;" alt="Kuponkataloget Logo" />
+                </div>
+                <div class="float-right text-right" style="height:100%; padding-top: 8px;">
+                    <a class="text-white" asp-area="" asp-controller="Kataloger" asp-action="Index">
+                        Luk Katalog
+                        <i class="material-icons md-24 md-light">clear</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+@switch (Model.Pages[pageId].Type)
+{
+    case Enums.pageTypes.FrontPage:
+        <partial name="_FrontpagePartial" model="Model" />
+        break;
+
+    case Enums.pageTypes.Affiliate:
+        <partial name="_AffiliatePartial" model="Model" />
+        break;
+
+    case Enums.pageTypes.BackPage:
+        <partial name="_BackpagePartial" model="Model" />
+        break;
+
+    default:
+        break;
+}
+
+<!-- Buttom navigation -->
+<div class="fixed-bottom">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+
+            <!-- CTA button -->
+            @if (Model.Pages[pageId].TargetUrl != null)
+            {
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center align-items-center" style="height:60px; padding-bottom:10px">
+                    <a href="@Model.Pages[pageId].TargetUrl" target="_blank" class="btn btn-primary btn-lg">@Model.Pages[pageId].ButtonText</a>
+                </div>
+            }
+
+            <!-- Nav bar -->
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_buttom_box box_shadow_normal" style="height:60px;">
+
+                <!-- Progress bar -->
+                <div style="height:4px;">
+                    <div class="bg-white" style="width:@progress%; height:4px;"></div>
+                </div>
+
+                <!-- Navigation - Left -->
+                <div class="float-left" style="width:20%; height:100%; padding-top: 4px;">
+                    @if (pageId > 0)
+                    {
+                        <a href="~/Kataloger/@catalogMoniker/@previousPageMoniker">
+                            <i class="material-icons md-48 md-light">keyboard_arrow_left</i>
+                        </a>
+                    }
+                    else
+                    {
+                        <i class="material-icons md-48 md-light" style="opacity:0.2;">keyboard_arrow_left</i>
+                    }
+                </div>
+
+                <!-- Navigation - Center -->
+                <div class="float-left" style="width:60%; height:100%; padding-top: 14px;">
+                    <div class="d-flex justify-content-center">
+                        <h4 class="text-white">Side @pageIdShow ud af @numberOfPages</h4>
+                    </div>
+                </div>
+
+                <!-- Navigation - Right -->
+                <div class="float-right text-right" style="width:20%; height:100%; padding-top: 4px;">
+                    @if (pageId + 1 < numberOfPages)
+                    {
+                        <a href="~/Kataloger/@catalogMoniker/@nextPageMoniker">
+                            <i class="material-icons md-48 md-light">keyboard_arrow_right</i>
+                        </a>
+                    }
+                    else
+                    {
+                        <i class="material-icons md-48 md-light" style="opacity:0.2;">keyboard_arrow_right</i>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

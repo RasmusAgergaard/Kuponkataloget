@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Pristjek - Sammenlign priser før du køber";
+}
+
+@section metatags{<meta name="description" content="Sammenlign priser på f.eks. Magasiner eller Mobilabonnementer med vores Pristjek, det er nemt, hurtigt og du kan spare en masse penge!">}
+
+
+<div class="text-center p-3">
+
+    <!--Spacer-->
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">Pristjek - Sammenlign priser før du køber!</h1>
+    <p class="lead">
+        Sammenlign priser og få overblik - Det er nemt, hurtigt og du kan spare en masse penge!
+        <br />
+        Se de forskellige kategorier her:
+    </p>
+
+    <div class="container">
+        <div class="row">
+
+            @foreach (var category in Model)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <img src="@category.ImgUrl" class="img-fluid shadow" alt="@category.Title">
+                    <div class="bg-white p-1" style="position: absolute;
+                                                      bottom: 20px;
+                                                      left: 0px;
+                                                      height:90px;
+                                                      width:100%;
+                                                      opacity: 0.9;">
+                        <h3>@category.Title</h3>
+                        <a asp-area="" asp-controller="Pristjek" asp-action="@category.LinkName" class="btn btn-primary">Gå til @category.Title</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Message>
+
+@{
+    ViewData["Title"] = "Messages - Archive";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Messages - Archive</h3>
+</p>
+
+
+<table class="table table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Subject</th>
+            <th scope="col">TimeSend</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th class="">@item.Name</th>
+                <td class="">@item.Email</td>
+                <td class="">@item.Subject</td>
+                <td class="">@item.TimeSend</td>
+                <td class="bg-white">
+                    <a asp-area="" asp-controller="Admin" asp-action="MessageDetails" asp-route-id="@item.MessageId" class="btn btn-outline-success btn-sm" role="button">Read</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="UnarchiveMessage" asp-route-id="@item.MessageId" class="btn btn-outline-warning btn-sm" role="button">Unarchive</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="DeleteMessage" asp-route-id="@item.MessageId" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+
+

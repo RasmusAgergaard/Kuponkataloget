@@ -1,0 +1,91 @@
+﻿@model SitemapViewModel
+
+@{
+    ViewData["Title"] = "Sitemap";
+}
+
+
+<div class="text-center p-3">
+
+    <!--Spacer-->
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">@ViewData["Title"]</h1>
+    <p class="lead">
+        Oversigtsside over <a asp-area="" asp-controller="Home" asp-action="Index">Kuponkataloget.dk</a>
+    </p>
+</div>
+
+<div class="p-3">
+
+    <!-- Forside -->
+    <h2><a asp-area="" asp-controller="Home" asp-action="Index">Forside</a></h2>
+    <p>
+        Gratis, tilbud, konkurrencer og meget mere!
+    </p>
+
+
+    <hr />
+
+    <!-- Kataloger -->
+    <h2><a asp-area="" asp-controller="Kategorier" asp-action="Index">Kategorier</a></h2>
+    <p>
+        Se alle Kategorierne her - Fyldt med gratis ting, gode tilbud, spændende konkurrencer og meget mere!
+    </p>
+    <ul>
+        @foreach (var kategoriViewModel in Model.kategorier)
+        {
+
+            <li>
+                <h4><a href="/kategorier/@kategoriViewModel.Tag.Moniker">@kategoriViewModel.Tag.Title</a></h4>
+                <ul>
+                    @foreach (var item in kategoriViewModel.Pages)
+                    {
+                        <li>
+                            <a href="/kuponer/@item.Moniker">@item.Title</a>
+                        </li>
+                    }
+                </ul>
+                <br />
+            </li>
+        }
+    </ul>
+
+    <hr />
+
+    <!-- Pristjek -->
+    <h2><a asp-area="" asp-controller="Pristjek" asp-action="Index">Pristjek</a></h2>
+    <p>
+        Sammenlign priser og få overblik - Det er nemt, hurtigt og du kan spare en masse penge! Se de forskellige kategorier her:
+    </p>
+    <ul>
+        @foreach (var category in Model.categories)
+        {
+            <li>
+                <h5><a href="/Pristjek/@category.LinkName">Sammenlign priser på @category.Title</a></h5>
+            </li>
+        }
+    </ul>
+
+    <hr />
+
+    <!-- Kundeservice -->
+    <h2>Kundeservice</h2>
+    <ul>
+        <li>
+            <h5><a asp-area="" asp-controller="OmOs" asp-action="Index">Om Kuponkataloget - Hvad dælen er det for noget?</a></h5>
+            <p>Kuponkataloget er et online katalog, der samler en masse gode tilbud, konkurrencer og andet spændende indhold og præsenterer det, så det er nemt at kigge igennem.</p>
+        </li>
+        <li>
+            <h5><a asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></h5>
+            <p>Du er selvfølgelig altid meget velkommen til at kontakte os.</p>
+        </li>
+        <li>
+            <h5><a asp-area="" asp-controller="BetingelserPivatlivspolitik" asp-action="Index">Betingelser og Privatlivspolitik</a></h5>
+            <p>Kuponkataloget tilbyder gratis annoncer, tilbud og mulighed for sammenligning af priser inden for udvalgte kategorier.</p>
+        </li>
+    </ul>
+</div>
+
+
+

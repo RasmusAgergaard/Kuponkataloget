@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Message>
+
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "_LayoutAdmin";
+    var bgColor = "bg-white";
+    var textColor = "text-dark";
+}
+
+<p>
+    <h3>Messages</h3>
+</p>
+
+
+<table class="table table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Subject</th>
+            <th scope="col">TimeSend</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.Status == Enums.messageStatus.Unread)
+            {
+                bgColor = "bg-info";
+                textColor = "text-white";
+            }
+            else
+            {
+                bgColor = "bg-white";
+                textColor = "text-dark";
+            }
+                <tr class="@bgColor">
+                    <th class="@textColor">@item.Name</th>
+                    <td class="@textColor">@item.Email</td>
+                    <td class="@textColor">@item.Subject</td>
+                    <td class="@textColor">@item.TimeSend</td>
+                    <td class="bg-white">
+                        <a asp-area="" asp-controller="Admin" asp-action="MessageDetails" asp-route-id="@item.MessageId" class="btn btn-outline-success btn-sm" role="button">Read</a>
+                        <a asp-area="" asp-controller="Admin" asp-action="ArchiveMessage" asp-route-id="@item.MessageId" class="btn btn-outline-danger btn-sm" role="button">Archive</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+

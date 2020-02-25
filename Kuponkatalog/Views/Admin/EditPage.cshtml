@@ -1,0 +1,139 @@
+﻿@model PageViewModel;
+
+@{
+    ViewData["Title"] = "Edit Page";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Edit Page - @Model.Page.Title</h3>
+</p>
+
+<hr />
+
+<form asp-action="AddItem" method="post">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Left -->
+            <div class="col-sm">
+
+                <div class="form-group">
+                    <label asp-for="Page.Status">Status:</label>
+                    <select class="form-control" asp-for="Page.Status">
+                        <option>@Enums.pageStatus.Active</option>
+                        <option>@Enums.pageStatus.Expired</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Page.Title">Title:</label>
+                    <input class="form-control" asp-for="Page.Title" />
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="col-sm">
+
+                <div class="form-group">
+                    <label asp-for="Page.Type">Type:</label>
+                    <select class="form-control" asp-for="Page.Type">
+                        <option>@Enums.pageTypes.Affiliate</option>
+                        <option>@Enums.pageTypes.FrontPage</option>
+                        <option>@Enums.pageTypes.BackPage</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Page.Moniker">Moniker:</label>
+                    <input class="form-control" asp-for="Page.Moniker" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="">
+
+            <div class="form-group">
+                <label asp-for="Page.DescriptionShort">DescriptionShort:</label>
+                <textarea class="form-control" asp-for="Page.DescriptionShort" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Page.DescriptionLong">DescriptionLong:</label>
+                <textarea class="form-control" asp-for="Page.DescriptionLong" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Page.ImgUrl">ImgUrl:</label>
+                <input class="form-control" asp-for="Page.ImgUrl" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Page.TargetUrl">TargetUrl:</label>
+                <input class="form-control" asp-for="Page.TargetUrl" />
+            </div>
+
+            <p>
+                Tags:
+                <br />
+
+                @*@foreach (var tag in Model.KategoriViewModels)
+                {
+                    <span class="badge badge-info">@tag.Title</span> 
+                }*@
+
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Left -->
+            <div class="col-sm">
+
+                <div class="form-group">
+                    <label asp-for="Page.ButtonText">ButtonText:</label>
+                    <input class="form-control" asp-for="Page.ButtonText" />
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" asp-for="Page.CreateDate" value="@Model.Page.CreateDate" readonly />
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="col-sm">
+
+                <div class="form-group">
+                    <label asp-for="Page.SortNumber">SortNumber:</label>
+                    <input class="form-control" asp-for="Page.SortNumber" />
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" asp-for="Page.LastEditDate" value="@DateTime.Now.ToString()" readonly />
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" asp-for="SavedPageId" value="@Model.Page.PageId" readonly hidden />
+                </div>
+
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success">Save</button>
+
+    </div>
+
+    
+
+</form>
+
+
+

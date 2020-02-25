@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Sammenlign priser på Bredbånd - Klik her";
+    var breadcrumbTitle = "Bredbånd";
+}
+
+@section metatags{<meta name="description" content="Find det bedste tilbud på Bredbånd. Det er nemt og hurtigt at sammenligne priser og tilbud, inden du køber.">}
+
+@section comparisonfeed{ <partial name="_ComparisonFeedPartial" /> }
+
+<div class="text-center p-3">
+
+    <partial name="_BreadcrumbPartial" model="@breadcrumbTitle" />
+
+    <h1 class="display-5">Sammenlign priser på Bredbånd</h1>
+    <p class="lead">
+        Find det bedste tilbud på Bredbånd. Det er nemt og hurtigt at sammenligne priser og tilbud, inden du køber
+    </p>
+
+</div>
+
+
+<partial name="_BredbaandPartial" />
+

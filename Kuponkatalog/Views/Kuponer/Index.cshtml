@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Page>
+
+@{
+    ViewData["Title"] = "Alle vores kuponer";
+}
+
+    <div class="container">
+        <div class="text-center p-3">
+
+            <!-- Spacer -->
+            <div style="width:100%; height:15px;"></div>
+
+            <h1 class="display-5">@ViewData["Title"] <span class="badge badge-secondary">@Model.Count() stk.</span></h1>
+            <p class="lead">Her er fyldt med gratis ting, gode tilbud, spændende konkurrencer og meget mere!</p>
+
+        </div>
+
+        <div class="row p-3">
+
+            @foreach (var item in Model)
+            {
+                <partial name="_KuponCardPartial" model="item" />
+            }
+
+        </div>
+    </div>

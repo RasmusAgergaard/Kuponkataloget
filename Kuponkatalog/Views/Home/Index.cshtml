@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Page>
+
+@{
+    ViewData["Title"] = "Gratis, tilbud, konkurrencer og meget mere - Klik her";
+}
+
+@section metatags{<meta name="description" content="Nyt kuponkatalog ude nu - Se det her! Udover det, så kan du sammenligne priser med vores Pristjek, det er nemt og hurtigt.">}
+
+
+<div class="text-center p-3">
+
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">De nyeste kuponer!</h1>
+    <p class="lead">Her er fyldt med gratis ting, gode tilbud, spændende konkurrencer og meget mere!</p>
+    <p><a asp-area="" asp-controller="Nyheder" asp-action="Index">Se alle nyheder</a></p>
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <partial name="_KuponCardPartial" model="item" />
+            }
+        </div>
+    </div>
+</div>
+
+<div class="text-center categories_box text-white p-3">
+
+    <div style="width:100%; height:15px;"></div>
+
+    <h2 class="display-5">Sammenlign priser med Pristjek</h2>
+    <p>
+        Leder du efter det bedste tilbud på magasiner? Eller måske det bedste mobilabonnement for dig? Med vores Pristjek kan du nemt sammenligne priser før du vælger. Vi har mange forskellige kategorier.
+    </p>
+
+    <p>
+        <img src="~/images/sammenlign_priser.png" class="img-fluid" alt="Pristjek oversigtsbillede med 3 eksempler" />
+    </p>
+
+    <a class="btn btn-primary btn-lg" asp-area="" asp-controller="Pristjek" asp-action="Index" title="Gå til Pristjek">Gå til Pristjek her</a>
+
+    <div style="width:100%; height:15px;"></div>
+
+</div>
+
+<partial name="_MailSignupPartial" />
+
+<div class="text-center about_us_box text-white p-3">
+
+    <div style="width:100%; height:15px;"></div>
+
+    <h2 class="display-5 pb-2">Om Kuponkataloget</h2>
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 text-left">
+
+            <div class="card border-white mb-4" style="background-color:#ED1C00;">
+                <div class="card-body">
+                    <h3 class="card-title">Hvad dælen er det for noget?</h3>
+                    <p class="card-text">
+                        Kuponkataloget er et online katalog, der samler en masse gode tilbud, konkurrencer og andet spændende indhold og præsenterer det, så det er nemt at kigge igennem.
+                    </p>
+                </div>
+            </div>
+
+            @*<div class="card border-white mb-4" style="background-color:#ED1C00;">
+                <div class="card-body">
+                    <h3 class="card-title">Katalogerne</h3>
+                    <p class="card-text">
+                        Det er i katalogerne, vi samler alt det gode indhold, vi finder. Der udkommer et nyt katalog hver uge.
+                        Under menupunktet “<a class="text-white" asp-area="" asp-controller="Kataloger" asp-action="Index" style="text-decoration:underline;">Kataloger</a>” finder du det nyeste katalog samt de tidligere udgaver.
+                    </p>
+                </div>
+            </div>*@
+
+            <div class="card border-white mb-4" style="background-color:#ED1C00;">
+                <div class="card-body">
+                    <h3 class="card-title">Pristjek</h3>
+                    <p class="card-text">
+                        Med Pristjek kan du nemt få sammenlignet priser på f.eks Magasiner eller Mobilabonnementer. Det er hurtigt, og det kan spare dig en masse penge.
+                        <br />
+                        <a class="text-white" asp-area="" asp-controller="Pristjek" asp-action="Index" style="text-decoration:underline;">
+                            Klik ind og se de forskellige kategorier her
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="width:100%; height:15px;"></div>
+
+</div>

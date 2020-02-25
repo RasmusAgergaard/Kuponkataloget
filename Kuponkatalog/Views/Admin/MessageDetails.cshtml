@@ -1,0 +1,36 @@
+﻿@model  Message
+
+@{
+    ViewData["Title"] = "Message Details";
+    Layout = "_LayoutAdmin";
+}
+
+<h1>Message Details</h1>
+
+<hr />
+
+<p>
+    <h5>From:</h5>
+    <span>@Model.Name</span>
+    <br />
+    <span>@Model.Email</span>
+</p>
+
+<p>
+    <h5>Sendt:</h5>
+    @Model.TimeSend
+</p>
+
+<p>
+    <h5>Message:</h5>
+    <span>Subject:</span>
+    <br />
+    <span>@Model.Subject</span>
+
+    <br /><br />
+    <span>Content:</span>
+    <br />
+    <span>@Model.Content</span>
+</p>
+
+<hr />

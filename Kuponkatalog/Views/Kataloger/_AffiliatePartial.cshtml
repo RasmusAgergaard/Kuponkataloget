@@ -1,0 +1,35 @@
+﻿@model CatalogViewModel
+
+@{
+    var pageId = Model.PageId;
+}
+
+<div class="row d-flex justify-content-center">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_picture_box d-flex justify-content-center shadow">
+
+        <a href="@Model.Pages[pageId].TargetUrl" target="_blank">
+            <img src="@Model.Pages[pageId].ImgUrl" class="img-fluid" alt="@Model.Pages[pageId].Title" asp-append-version="true">
+        </a>
+
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_content_box shadow pt-4 pb-5">
+        <h2 class="card-title">@Model.Pages[pageId].Title</h2>
+        <p class="card-text lead">
+            @if (!String.IsNullOrWhiteSpace(Model.Pages[pageId].DescriptionShort))
+            {
+                @Html.Raw(Model.Pages[pageId].DescriptionShort.Replace(Environment.NewLine, "<br/>"));
+            }
+        </p>
+        <p class="card-text">
+            @if (!String.IsNullOrWhiteSpace(Model.Pages[pageId].DescriptionLong))
+            {
+                @Html.Raw(Model.Pages[pageId].DescriptionLong.Replace(Environment.NewLine, "<br/>"));
+            }
+
+
+        </p>
+
+        <div style="width:100%; height:110px;"></div>
+
+    </div>
+</div>

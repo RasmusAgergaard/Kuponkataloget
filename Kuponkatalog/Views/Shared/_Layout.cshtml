@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | Kuponkataloget</title>
+
+    @RenderSection("metatags", required: false)
+
+    <!-- Google Tag Manager -->
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MGRC67Z');</script>
+    <!-- End Google Tag Manager -->
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+
+    @RenderSection("comparisonfeed", required: false)
+
+    <!-- Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <partial name="_FavIconPartial" />
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGRC67Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark shadow" style="background-color:#ED1C00;">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/kuponkatalog_logo.png" style="width: 200px; height:auto;" alt="Kuponkataloget Logo" />
+                </a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
+                    <ul class="navbar-nav float-md-right">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Forside</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kategorier
+                            </a>
+                            <div class="dropdown-menu border-light" style="background-color:#ED1C00;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-white" href="/Kategorier/Bolig-Indretning"><i class="material-icons md-24 md-light">house</i> Bolig & Indretning</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Film-Musik"><i class="material-icons md-24 md-light">library_music</i> Film & Musik</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Familie-Fritid"><i class="material-icons md-24 md-light">child_care</i> Familie & Fritid</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Mad-Drikke"><i class="material-icons md-24 md-light">cake</i> Mad & Drikke</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Pleje-Kosmetik"><i class="material-icons md-24 md-light">face</i> Pleje & Kosmetik</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Sport-Traening"><i class="material-icons md-24 md-light">sports_handball</i> Sport & Træning</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Sundhed-Velvaere"><i class="material-icons md-24 md-light">spa</i> Sundhed & Velvære</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Teknik-Elektronik"><i class="material-icons md-24 md-light">phonelink</i> Teknik & Elektronik</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Toej-Mode"><i class="material-icons md-24 md-light">business_center</i> Tøj & Mode</a>
+                                <a class="dropdown-item text-white" href="/Kategorier/Konkurrencer"><i class="material-icons md-24 md-light">local_play</i> Konkurrencer</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Pristjek" asp-action="Index">Pristjek</a>
+                        </li>
+                        @*<li class="nav-item dropdown">
+                            <partial name="_loginPartial" />
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="OmOs" asp-action="Index">Om os</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container shadow">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0" style="background-color: #fff">
+
+                <partial name="_CookieConsentPartial" />
+
+                <main role="main" class="">
+                    @RenderBody()
+                </main>
+
+                <partial name="_FooterPartial" />
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bund -->
+    <div class="container pt-5">
+        <div class="row d-flex justify-content-center text-center">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 text-center">
+
+                <h3>Følg os på</h3>
+                <p class="p-1">
+
+                    <a class="btn btn-outline-dark m-1" href="https://www.facebook.com/Kuponkataloget" target="_blank">
+                        Facebook
+                        <img src="~/images/social/fb_square_icon.png" style="width:30px; height:auto;" alt="Facebook ikon" />
+                    </a>
+                    eller
+                    <a class="btn btn-outline-dark m-1" href="https://www.instagram.com/Kuponkataloget" target="_blank">
+                        Instagram
+                        <img src="~/images/social/ig_square_icon.png" style="width:30px; height:auto;" alt="Instagram ikon" />
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+        <div class="row d-flex justify-content-center">
+            <p>
+                <small>Kuponkataloget - En del af <a href="https://www.ratherbecoding.dk" target="_blank" title="RatherBeCoding">RatherBeCoding</a></small>
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    @*<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+            <i class="material-icons md-24">keyboard_arrow_up</i>
+        </a>*@
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

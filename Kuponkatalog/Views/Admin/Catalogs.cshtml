@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CatalogViewModel>
+
+@{
+    ViewData["Title"] = "Catalogs Overview";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <h3>Catalogs Overview</h3>
+</p>
+
+<p>
+    <a asp-area="" asp-controller="Admin" asp-action="NewCatalog" class="btn btn-outline-success btn-sm" role="button">Create New Catalog</a>
+</p>
+
+<table class="table table-sm table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Moniker</th>
+            <th scope="col">Title</th>
+            <th scope="col">Number of pages</th>
+            <th scope="col">Frontpage</th>
+            <th scope="col">Status</th>
+            <th scope="col">Pic</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.Catalog.CatalogId</th>
+            <td>@item.Catalog.Moniker</td>
+            <td>@item.Catalog.Title</td>
+            <td>@item.Pages.Count()</td>
+            <td>
+                @if (item.Catalog.ShowOnFrontpage == true)
+                {<span class="badge badge-success">Frontpage</span>}
+            </td>
+            <td>
+                @if (item.Catalog.Status == Enums.catalogStatus.Active)
+                {<span class="badge badge-success">Active</span>}
+                @if (item.Catalog.Status == Enums.catalogStatus.Draft)
+                {<span class="badge badge-secondary">Draft</span>}
+                @if (item.Catalog.Status == Enums.catalogStatus.Archived)
+                {<span class="badge badge-info">Archived</span>}
+            </td>
+            <td><img src="@item.Catalog.ImgUrl" alt="Thumb" style="width: 40px;" /></td>
+            <td>
+                <a asp-area="" asp-controller="Admin" asp-action="EditCatalog" asp-route-id="@item.Catalog.CatalogId" class="btn btn-outline-warning btn-sm" role="button">Edit</a>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-@item.Catalog.CatalogId">Delete</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal-@item.Catalog.CatalogId" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel">Are you sure you want to delete this Item?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    ID: @item.Catalog.CatalogId
+                                    <br />
+                                    Title: @item.Catalog.Title
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-outline-success btn-sm" role="button" data-dismiss="modal">No I Don't Want To</a>
+                                <a asp-area="" asp-controller="Admin" asp-action="DeleteCatalog" asp-route-id="@item.Catalog.CatalogId" class="btn btn-outline-danger btn-sm" role="button">Yes I Want To Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

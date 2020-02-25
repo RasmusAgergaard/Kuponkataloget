@@ -1,0 +1,21 @@
+﻿@model CatalogViewModel
+
+@{ 
+    var pageId = Model.PageId;
+}
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_picture_box d-flex justify-content-center mt-2">
+            <img src="~/images/kuponkatalog_logo.png" class="img-fluid" alt="Kuponkataloget Logo" asp-append-version="true">
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center pt-2" style="background-color: #C01700;">
+            <img src="@Model.Catalog.ImgUrl" class="img-fluid" alt="@Model.Catalog.Title - @Model.Catalog.Description" asp-append-version="true">
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 details_picture_box shadow pt-4 text-center text-white">
+            <h1 class="display-5">@Model.Catalog.Title</h1>
+            <p class="lead m-2">@Model.Catalog.Description</p>
+
+            <!-- Spacer -->
+            <div style="width:100%; height:150px;"></div>
+
+        </div>
+    </div>

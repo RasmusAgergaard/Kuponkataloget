@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CatalogViewModel>
+
+@{
+    ViewData["Title"] = "Se alle Kuponkatalogerne her";
+
+    int newId = 0;
+
+    foreach (var item in Model)
+    {
+        if (item.Catalog.CatalogId > newId)
+        {
+            newId = item.Catalog.CatalogId;
+        }
+    }
+}
+
+@section metatags{<meta name="description" content="De er fyldt med gratis ting, gode tilbud, spændende konkurrencer og meget mere!">}
+
+<div class="text-center p-3">
+
+    <!-- Spacer -->
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">@ViewData["Title"]</h1>
+    <p class="lead">Fyldt med gratis ting, gode tilbud, spændende konkurrencer og meget mere!</p>
+
+    @foreach (var catalog in Model)
+    {
+        <div class="row d-flex justify-content-center">
+            <div class="card m-3 text-left text-dark shadow" style="max-width: 650px;">
+                <div class="row no-gutters">
+                    <div class="col-sm-6">
+
+                        <a href="~/Kataloger/@catalog.Catalog.Moniker/Forside">
+                            <img src="@catalog.Catalog.ImgUrl" class="card-img" alt="@catalog.Catalog.Title - @catalog.Catalog.Description">
+                        </a>
+
+                        <!-- Title Label -->
+                        <div class="bg-white p-1" style="position: absolute;
+                                                      bottom: 16px;
+                                                      left: 0px;
+                                                      height:46px;
+                                                      width:100%;
+                                                      opacity: 0.7;">
+                            <h2>@catalog.Catalog.Title</h2>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-body">
+                            <h5 class="card-title">@catalog.Catalog.Description</h5>
+
+
+                            @if (catalog.Catalog.CatalogId == newId)
+                            {
+                                <a href="~/Kataloger/@catalog.Catalog.Moniker/Forside" class="btn btn-primary shadow-pulse">Læs katalog</a>
+
+                                <span class="text-white p-1" style="background-color: #26a948; border-radius:4px;">
+                                    <i class="material-icons md-24 md-light">arrow_back</i>
+                                    Nyt katalog
+                                </span>
+                            }
+                            else
+                            {
+                                <a href="~/Kataloger/@catalog.Catalog.Moniker/Forside" class="btn btn-primary">Læs katalog</a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+
+
+
+
+

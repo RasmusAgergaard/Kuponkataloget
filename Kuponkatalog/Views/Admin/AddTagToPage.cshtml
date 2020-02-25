@@ -1,0 +1,64 @@
+﻿@model AddTagToPageViewModel;
+
+@{
+    ViewData["Title"] = "Add Tag to Page";
+    Layout = "_LayoutAdmin";
+
+    foreach (var tag in Model.TagsOnPage)
+    {
+        Model.TagsAvalible.Remove(tag);
+    }
+
+}
+
+<p>
+    <h3>Add Tag to Page</h3>
+</p>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm">
+            <form asp-action="AddTagToPage" method="post">
+                <div class="form-group">
+                    <label asp-for="TagId">TagId:</label>
+                    <input class="form-control" asp-for="TagId" value=""/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PageId">PageId:</label>
+                    <input class="form-control" asp-for="PageId" value="@Model.PageId" readonly />
+                </div>
+                <button type="submit" class="btn btn-outline-success btn-sm">Add</button>
+            </form>
+        </div>
+
+        <div class="col-sm">
+
+            <h5>Avalible tags</h5>
+            <p>
+                @foreach (var item in Model.TagsAvalible)
+                {
+                    <span class="badge badge-info">@item.Title (@item.TagId)</span> 
+                }
+            </p>
+
+            <h5>Tags on page</h5>
+            <p>
+                @foreach (var item in Model.TagsOnPage)
+                {
+                <span class="badge badge-info">@item.Title (@item.TagId)</span> 
+                }
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+

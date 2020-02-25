@@ -1,0 +1,71 @@
+﻿@model Message
+
+@{
+    ViewData["Title"] = "Kontakt Kuponkataloget her";
+}
+
+@section metatags{<meta name="description" content="Skriv til Kuponkataloget via vores kontaktformular, så vender vi tilbage til dig hurtigst muligt.">}
+
+<div class="text-center p-3">
+
+    <!--Spacer-->
+    <div style="width:100%; height:15px;"></div>
+
+    <h1 class="display-5">Kontakt os</h1>
+    <p class="lead">
+        Du er selvfølgelig altid meget velkommen til at kontakte os. Vi bliver faktisk en smule fornærmede hvis du ikke gør
+        <i class="material-icons md-24 md-dark">mood</i>
+    </p>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 ml-4 mr-4">
+        <form asp-action="Index" method="post" class="form-horizontal" role="form">
+
+            @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Navn:</label>
+                <div class="">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email:</label>
+                <div class="">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label">Emne:</label>
+                <div class="">
+                    <input asp-for="Subject" class="form-control" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Content" class="control-label">Besked:</label>
+                <div class="">
+                    <textarea asp-for="Content" class="form-control"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" class="btn btn-primary" value="Send" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!--Spacer-->
+<div style="width:100%; height:50px;"></div>
+

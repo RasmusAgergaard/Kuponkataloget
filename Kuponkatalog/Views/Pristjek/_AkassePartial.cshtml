@@ -1,0 +1,41 @@
+﻿<div class="container" data-iframe-height="data-iframe-height">
+    <!-- Show feed title -->
+    <!-- Filter starts here -->
+    <!-- Filter ends here -->
+
+
+    <div id="tableHolder" class="comparisson-plg"
+         data-adserviceFeed="true"
+         data-id="a-kasse01"
+         data-template="#outputTmpl"
+         data-publisherId="34293"
+         data-categoryId="164"
+         data-searchForm="#searchTable"
+         data-cleanLink="true"
+         data-minRating="60"
+         data-sub="ComparisonIframe|||CIF"
+         data-media="0"
+         data-initialRows=""
+         data-maxRows=""
+         data-removedItems='[]'
+         data-conditions='[]'
+         data-customOrder='{}'
+         data-customRating='{}'
+         data-includeNewCampaigns="true"
+         data-lazyLoading="true"></div>
+
+    <!-- Show 'view more' button -->
+
+
+    <div id="compare-wrapper">
+        <script id="outputTmpl" type="text/x-render">
+            <div id="loanTable">
+                {{for data}}
+
+                <div class="compare-row slim-compare-row" data-campaign-id="{{>campId}}"><div class="row-item row-padding"><div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><div class="logo-container"><a href="{{>trackingUrl}}" class="as-link" target="_blank" rel="nofollow"><img src="" as-data-src="{{>imageUrl}}" class="img-responsive loan-img padding-top-sm as-lazy"></a></div><input type="rating" class="rating" value="{{>5*rating/100}}"></div><div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 margin-top nowrap text-center-sm text-center-xs"><div class="col-xs-6 col-sm-4 col-md-4 col-lg-4"><span class="as-small">{{>~getTranslation('pricePerMonth')}} </span><span class="as-highlight">{{>~printInterval(minPricePerMonthAkasse, null, ~getTranslation('currency'), true, true, true)}}</span></div><div class="col-xs-6 col-sm-4 col-md-4 col-lg-4"><span class="as-small">{{>~getTranslation('openFor')}} </span><span class="as-highlight">{{if ~printOrGetBoolean(openForEmployees, true) && ~printOrGetBoolean(openForSelfEmployed, true)}} {{>~getTranslation('everyone')}} {{else ~printOrGetBoolean(openForEmployees, true)}} {{>~getTranslation('employees')}} {{else ~printOrGetBoolean(openForSelfEmployed, true)}} {{>~getTranslation('selfEmployed')}} {{else}} - {{/if}}</span></div>{{if ~isValid(minPricePerMonthUnion)}}<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><span class="as-small">{{>~getTranslation('pricePerMonthUnion')}} </span><span class="as-highlight">{{>~printInterval(minPricePerMonthUnion, null, ~getTranslation('currency'), true, true, true)}}</span></div>{{else}}<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"><span class="as-small">{{>~getTranslation('union')}} </span><span class="as-highlight">{{>~getTranslation('notPossible')}}</span></div>{{/if}}</div><div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 margin-top"><a href="{{>trackingUrl}}" class="btn btn-cta btn-block btn-max-width-card" target="_blank" rel="nofollow">{{>~getTranslation('joinNow')}}</a></div></div><div class="row-item row-padding"><div class="col-xs-12 col-sm-10 col-md-7 col-md-offset-3 col-lg-7 col-lg-offset-3"><div class="col-md-12 as-small text-center-xs"><b>{{>~getTranslation('benefits')}}: </b>{{>otherBenefits}}</div></div><div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center small-padding-xs margin-top-xs"><div class="as-read-more nowrap no-margin light-hover" style="position:static"><a class="as-small move-up-3px" data-open="{{>~getTranslation('showMore')}}" data-close="{{>~getTranslation('showLess')}}">{{>~getTranslation('showMore')}}</a><div class="as-read-more-icon margin-left-xs"><i class="fa fa-angle-down fa-lg"></i></div></div></div></div><div class="row-item as-show-more-content row-padding"><div class="hr-divider"></div><div class="col-xs-12 col-md-push-3 col-md-7 text-center-sm text-center-xs"><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('openForEmployees')}}</div><div class="as-data-c">{{>~printOrGetBoolean(openForEmployees)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('openForSelfEmployed')}}</div><div class="as-data-c">{{>~printOrGetBoolean(openForSelfEmployed)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('freeForStudents')}}</div><div class="as-data-c">{{>~printOrGetBoolean(freeForStudents)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('possibilityForSalaryInsurance')}}</div><div class="as-data-c">{{>~printOrGetBoolean(possibilityForProtectionOfSalery)}}</div></div><div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('tradeSpecific')}}</div><div class="as-data-c">{{>~printOrGetBoolean(tradespecific)}}</div></div>{{if ~isValidNumber(satisfactionLevel)}}<div class="more-col col-xs-6 col-sm-4"><div class="as-data-type">{{>~getTranslation('satisfactionLevel')}}</div><div class="as-data-c">{{>satisfactionLevel}} %</div></div>{{/if}}</div></div></div>
+
+                {{/for}}
+            </div>
+        </script>
+    </div>
+</div>

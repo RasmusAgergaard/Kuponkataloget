@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Page>
+
+@{
+    ViewData["Title"] = "AAT-5000";
+    Layout = "_LayoutAdmin";
+
+    int activePages = 0;
+    int expiredPages = 0;
+
+    foreach (var page in Model)
+    {
+        if (page.Status == Enums.pageStatus.Active)
+        {
+            activePages++;
+        }
+
+        if (page.Status == Enums.pageStatus.Expired)
+        {
+            expiredPages++;
+        }
+    }
+}
+
+<br />
+<div class="text-center">
+    <h3>AAT-5000 (Automatic Ad Tester 5000)</h3>
+</div>
+
+<hr />
+
+<div class="container row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <div class="card w-100 bg-dark">
+            <div class="card-body text-white">
+                <p class="card-text">Total number of pages</p>
+                <h2 class="card-title">@Model.Count()</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <div class="card w-100 bg-success">
+            <div class="card-body text-white">
+                <p class="card-text">Active pages</p>
+                <h2 class="card-title">@activePages</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <div class="card w-100 bg-danger">
+            <div class="card-body text-white">
+                <p class="card-text">Expired pages</p>
+                <h2 class="card-title">@expiredPages</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="text-center p-4">
+    <a asp-area="" asp-controller="Admin" asp-action="TestUrlOfAllPages" class="btn btn-success btn-lg" role="button">TEST ALL PAGES</a>
+</div>
+
+
+<hr />

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kuponkatalog", "Kuponkatalog\Kuponkatalog.csproj", "{5F87AA06-E297-4793-9112-D2C19656DA46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F87AA06-E297-4793-9112-D2C19656DA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F87AA06-E297-4793-9112-D2C19656DA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F87AA06-E297-4793-9112-D2C19656DA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F87AA06-E297-4793-9112-D2C19656DA46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CFDD054-BD85-43E1-B67E-101D4AC0E425}
+	EndGlobalSection
+EndGlobal
